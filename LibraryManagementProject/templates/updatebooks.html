@@ -1,0 +1,32 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<style>
+    input:focus
+        {
+        background-color:black;color:yellow;
+        }
+</style>
+<form method="post">
+    {% csrf_token %}
+    <h2 align="center">Add Books</h2>
+  <table align="center">
+    <tr>
+      <td>BookName</td>
+      <td><input type="text" name="txtbname" value="{{ data.Book_Name }}"></td>
+    </tr>
+     <tr>
+      <td>AuthorName</td>
+      <td><input type="text" name="txtauthname" value="{{ data.Author_Name }}"></td>
+    </tr>
+     <tr><td>Course</td>
+      <td><select name="ddlcourse" value="{{ data.Course_Id }}">
+          {% for i in course %}
+          <option selected>{{ i.Course_Name }}</option>
+          {% endfor %}
+      </select></td>
+
+    </tr>
+     <tr> <td><input type="submit" name="btnsubmit" value="ADDBOOK"></td></tr>
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body
+        {
+        background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlLyFk0GfhBG2jvmkRLKJWxRn6dQBJD0bmeA&usqp=CAU);
+}
+        table
+        {
+        background-color:black;color:white;
+        }
+        h2
+        {
+        background-color:black;color:white;
+        }
+        input:focus
+        {
+        background-color:black;color:yellow;
+        }
+
+    </style>
+</head>
+<body>
+<form action="a_read" method="post">
+    {% csrf_token %}
+    <h2 align="center">Admin Signup</h2>
+    <table align="center">
+        <tr>
+            <td>UserName</td>
+            <td><input type="text" name="txtname"></td>
+        </tr>
+<tr>
+    <td>Email</td>
+    <td><input type="email" name="txtemail"></td>
+</tr>
+        <tr>
+    <td>Password</td>
+    <td><input type="password" name="txtpwd"></td>
+</tr>
+        <tr>
+            <td> </td><td><input type="submit" name="btnsubmt" value="SIGNUP"></td>
+        </tr>
+
+    </table>
+
+<h2 align="center" style="color:red;">{{ data }}</h2>
+</form>
+
+</body>
+</html>

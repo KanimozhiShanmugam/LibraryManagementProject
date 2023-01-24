@@ -1,0 +1,63 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<style>
+body
+        {
+        background-image:url('https://www.utrgv.edu/library/_files/images/hero-images/books-background.jpg');
+        background-repeat:no-repeat;
+        background-size: cover;
+        }
+        h2
+        {
+        background-color:orange;color:white;
+        }
+        tr
+        {
+        color:orange;
+        }
+        </style>
+<body>
+<form action="assignread" method="post">
+    {% csrf_token %}
+<h2 align="center">AssignBooks</h2>
+<div style="border-style:solid; padding:50px; border-color:orange; background-color:black; width:50%; height:200px;float:left">
+<table align="center">
+    <tr><td>Student Semester</td>
+    <td><input type="text" name="txtsem"></td></tr>
+    <tr><td>Student Course</td>
+            <td><select name="ddlcourse">
+          {% for i in course %}
+          <option>{{ i.Course_Name }}</option>
+          {% endfor %}
+        </select></td></tr>
+    <tr><td><input type="submit" name="btnsubmit" value="SUBMIT"></td></tr>
+</table>
+
+</div>
+</form>
+<form action="readassign" method="post">
+    {% csrf_token %}
+<div style="border-style:solid; padding:50px; border-color:orange; background-color:black; width:50%; height:200px;float:right">
+<table align="center">
+    <tr><td>StudentName</td>
+    <td><select name="ddlstuname">
+        {% for i in student %}
+        <option>{{ i.Student_Name }}</option>
+        {% endfor %}
+    </select></td></tr>
+    <tr><td>Book Name</td><td><select name="ddlbname">
+        {% for i in book %}
+        <option>{{ i.Book_Name }}</option>
+        {% endfor %}
+    </select> </td></tr>
+    <tr><td>Start Date</td>
+    <td><input type="date" name="sdate"></td></tr>
+     <tr><td>End Date</td>
+    <td><input type="date" name="edate"></td></tr>
+    <tr><td><input type="submit" name="btnsubmit" value="ASSIGN"></td></tr>
+</table>
+
+</div>
+    </form>
+</body>
+{% endblock %}

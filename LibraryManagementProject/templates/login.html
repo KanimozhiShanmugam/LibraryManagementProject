@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body
+        {
+        background-image:url(https://media.istockphoto.com/id/949118068/photo/books.jpg?s=612x612&w=0&k=20&c=1vbRHaA_aOl9tLIy6P2UANqQ27KQ_gSF-BH0sUjQ730=);
+        background-repeat:no-repeat;
+        background-size: cover;
+        }
+        .a
+        {
+        color:white;
+        }
+        input:focus
+        {
+        background-color:black;color:yellow;
+        }
+    </style>
+</head>
+<body>
+
+<form action="logread" method="post">
+    {% csrf_token %}
+
+  <h2 align="center" class="a">Login Page</h2>
+    <table align="center">
+        <tr>
+            <td><b class="a">UserName</b></td>
+            <td><input type="text" name="texttname"></td>
+        </tr>
+
+        <tr>
+            <td><b class="a">Password</b></td>
+            <td><input type="password" name="txtpwd"></td>
+        </tr>
+        <tr>
+            <td> </td><td><input type="submit" name="btnsubmt" id="btn" value="LOGIN"></td>
+        </tr>
+<tr>
+    <td> </td><td><a href="{% url 'a' %}" class="a">AdminSignup</a> </td>
+</tr>
+   <tr>
+    <td> </td><td><a href="{% url 's' %}" class="a">StudentSignup</a> </td>
+</tr>
+    </table>
+
+</form>
+
+</body>
+</html>

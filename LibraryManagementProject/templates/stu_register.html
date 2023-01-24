@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body
+        {
+        background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_uc9hFkbKs_JggDIyBNPRNx_IR4HkGoP68Q&usqp=CAU);
+
+        }
+        table
+        {
+        background-color:black;color:white;
+        }
+        h2
+        {
+        background-color:black;color:white;
+        }
+        input:focus
+        {
+        background-color:black;color:yellow;
+        }
+        </style>
+</head>
+<body>
+<form action="s_read" method="post">
+  {% csrf_token %}
+  <h2 align="center">Student Signup</h2>
+  <table align="center">
+    <tr>
+      <td>StudentName</td>
+      <td><input type="text" name="txtname"></td>
+    </tr>
+     <tr>
+      <td>StudentPhno</td>
+      <td><input type="number" name="txtphno"></td>
+    </tr>
+     <tr>
+      <td>Semester</td>
+      <td><input type="text" name="txtsem"></td>
+    </tr>
+     <tr>
+      <td>Password</td>
+      <td><input type="password" name="txtpwd"></td>
+    </tr>
+    <tr>
+            <td>COURSE</td>
+            <td><select name="ddlcourse">
+                {% for i in course_data %}
+                <option>{{ i.Course_Name }}</option>
+                {% endfor %}
+            </select></td></tr>
+<tr>
+            <td> </td><td><input type="submit" name="btnsubmt" value="SIGNUP"></td>
+        </tr>
+  </table>
+<h2 align="center" style="color:red;">{{ data }}</h2>
+</form>
+
+</body>
+</html>

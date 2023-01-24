@@ -1,0 +1,41 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<style>
+    body
+        {
+        background-image:url('https://www.shutterstock.com/image-photo/back-school-concept-stack-books-260nw-1160400937.jpg');
+        background-repeat:no-repeat;
+        background-size: cover;
+        }
+        input:focus
+        {
+        background-color:black;color:yellow;
+        }
+
+</style>
+<body>
+<form action="addread" method="post">
+    {% csrf_token %}
+    <h2 align="center">Add Books</h2>
+  <table align="center">
+    <tr>
+      <td><b>BookName</b></td>
+      <td><input type="text" name="txtbname"></td>
+    </tr>
+     <tr>
+      <td><b>AuthorName</b></td>
+      <td><input type="text" name="txtauthname"></td>
+    </tr>
+     <tr><td><b>Course</b></td>
+      <td><select name="ddlcourse">
+          {% for i in course %}
+          <option>{{ i.Course_Name }}</option>
+          {% endfor %}
+      </select></td>
+
+    </tr>
+     <tr> <td><input type="submit" name="btnsubmit" value="ADDBOOK"></td></tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<style>
+    tr
+    {
+    background-color:black;color:yellow;
+    }
+</style>
+<form action="isread" method="post">
+    <table align="center" class="table">
+        <tr><td>ID</td>
+        <td>StudentName</td>
+        <td>BookName</td>
+        <td>StartDate</td>
+        <td>EndDate</td>
+         <td>Update</td>
+         <td>Delete</td></tr>
+        <tr>
+            {% for i in data %}
+            <td>{{ i.id }}</td>
+            <td>{{ i.Stu_Name }}</td>
+            <td>{{ i.Bname }}</td>
+            <td>{{ i.Start_Date }}</td>
+            <td>{{ i.End_Date }}</td>
+            <td><a href="{% url 'ui' i.id %}">Update</a> </td>
+            <td><a href="{% url 'di' i.id %}">Delete</a> </td>
+
+
+        </tr>
+        {% endfor  %}
+    </table>
+</form>
+{% endblock %}

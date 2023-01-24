@@ -1,0 +1,36 @@
+{% extends 'bar.html' %}
+{% block content %}
+<style>
+body
+        {
+        background-image:url(https://www.shutterstock.com/image-photo/symphony-shining-musical-notes-open-260nw-1738726349.jpg);
+        background-repeat:no-repeat;
+        background-size: cover;
+        }
+tr:nth-child(1n)
+{
+background-color:black;color:yellow;
+}
+h2
+{
+background-color:black;color:white;
+}
+</style>
+<body>
+<h2 align="center">Issued Book Details</h2>
+<table align="center" class="table">
+    <tr><td>StudentName</td>
+    <td>BookName</td>
+    <td>StartDate</td>
+    <td>EndDate</td></tr>
+    <tr>
+        {% for i in issue %}
+        <td>{{ i.Stu_Name }}</td>
+        <td>{{ i.Bname }}</td>
+        <td>{{ i.Start_Date }}</td>
+        <td>{{ i.End_Date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}
